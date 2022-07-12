@@ -1,6 +1,7 @@
 // local reviews data
 var value = 0;
 var id = 1;
+// Pre-Defined array from which we take the data.
 const reviews = [
   {
     id: 1,
@@ -40,15 +41,16 @@ const reviews = [
   },
 ];
 
-
+// we generate the random number which we later use to get the data from the array
 function randomnumber(){
   return Math.floor(Math.random()*reviews.length);
 }
 
-$(".suprise").click(function(){
+// adding eventlisteners where we generate the random number using the above function
+$(".suprise").click(function(){ 
   var random = randomnumber();
 
-
+// using switch statements for control
   switch (random) {
     case 0:
     change(0);
@@ -68,6 +70,7 @@ $(".suprise").click(function(){
 }
 });
 
+// adding eventlistener to the next button 
 $(".next-btn").click(function(){
 value = value +1;
 if(value > reviews.length-1){
@@ -76,6 +79,7 @@ if(value > reviews.length-1){
 change(value);
 });
 
+// adding eventlistener to the next button 
 $(".prev-btn").click(function(){
   value = value - 1;
   if(value < 0){
@@ -84,6 +88,7 @@ $(".prev-btn").click(function(){
   change(value);
 });
 
+// change() -  where we replace/change the data
 function change(num){
   var id = $("#authorname").text(reviews[num].id);
   $("#authorname").text(reviews[num].name);
